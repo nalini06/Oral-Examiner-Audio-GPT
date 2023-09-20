@@ -26,7 +26,7 @@ function OralExam() {
   const handleFetchFile = async () => {
     try {
       // Make an HTTP request to the server to fetch the PDF file
-      const response = await axios.get('http://localhost:5000/api/pdfContent')
+      const response = await axios.get('https://oral-examiner-server.onrender.com/api/pdfContent')
       const pdfContent = response.data.data.trim()
       console.log(pdfContent);
       // Assuming the server returns the PDF file as binary data
@@ -50,7 +50,7 @@ function OralExam() {
     // some times content can be pdf content of prevAskedQuestion by oral examiner
     try {
       // Make an HTTP request to your Node.js server to generate questions
-      const response = await axios.post('http://localhost:5000/api/generateQuestions', {
+      const response = await axios.post('https://oral-examiner-server.onrender.com/api/generateQuestions', {
         text: content,
         isFollowUp : isFollowUp,
         askedQuestion: content,
@@ -121,7 +121,7 @@ function OralExam() {
       pdf.save("transcript.pdf");
 
       try{
-        const response = await axios.post('http://localhost:5000/api/save', {
+        const response = await axios.post('https://oral-examiner-server.onrender.com/api/save', {
           transcript : transcriptBetweenStudentAndExaminer
         })
       }catch(error){
