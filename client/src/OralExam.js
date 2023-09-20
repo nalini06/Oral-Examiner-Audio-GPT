@@ -33,7 +33,7 @@ function OralExam() {
       
        
       // Set the PDF URL as questions in the text box
-      setQuestions("Questions are ready you can start you're exam");
+      
 
       // Set questionsReady to true
       setQuestionsReady(true);
@@ -59,8 +59,11 @@ function OralExam() {
       console.log(typeof(response.data));
       // Handle the generated questions in the response
       console.log(response.data);
-      if(isFollowUp == "no")
-       generatedQuestions = response.data.split('\n');
+      if(isFollowUp == "no"){
+        setQuestions("Questions are ready you can start you're exam");
+        generatedQuestions = response.data.split('\n');
+      }
+       
       return response.data.split('\n');
       
     } catch (error) {
