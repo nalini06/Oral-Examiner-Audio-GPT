@@ -23,8 +23,10 @@ function OralExam() {
   const [questionsReady, setQuestionsReady] = useState(false);
 
 
+
   const handleFetchFile = async () => {
     try {
+      setQuestions("Please wait, questions are generating")
       // Make an HTTP request to the server to fetch the PDF file
       const response = await axios.get('https://oral-examiner-server.onrender.com/api/pdfContent')
       const pdfContent = response.data.data.trim()
@@ -101,6 +103,7 @@ function OralExam() {
         for(let j =0; j<followUpQuestions.length; j++){
             const followUpQuestion = followUpQuestions[j].trim();
             if(followUpQuestion != '' && followUpQuestion.length > 0){
+                 setQuestions(followUpQuestion);
                  const speech2 = new SpeechSynthesisUtterance(followUpQuestion);
                  speechSynthesis.speak(speech2);
                  transcriptBetweenStudentAndExaminer += "Mercor oral Examiner: "+ followUpQuestion + "\n";
