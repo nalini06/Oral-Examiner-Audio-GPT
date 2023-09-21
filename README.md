@@ -42,3 +42,9 @@ npm install
 
 PDF folder has to be placed at controller folder.
 
+Create .env file to add
+```
+OPENAI_API_KEY = "(own api key)"
+TEST_MONGO_URI = "(own mongo db link)"
+```
+
