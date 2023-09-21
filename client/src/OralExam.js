@@ -80,6 +80,10 @@ function OralExam() {
 
 
   const handleStartExam = async () => {
+    if(generatedQuestions.length  ==0 || generatedQuestions == null){
+      alert("Please generate questions before starting the exam");
+      return;
+    }
     const pdf = new jsPDF();
 
     if (generatedQuestions.length > 0) {
@@ -189,9 +193,11 @@ const handleListen = () => {
   return (
     
     <div>
-      <h1>Oral Exam</h1>
+      <h1>Oral Examiner</h1>
+      <h4>(Please generate questions before starting the exam)</h4>
       <div>
-        <h2>Oral Examiner Questions</h2>
+        <h2>Examiner Questions</h2>
+        
         <textarea
           rows="4"
           cols="50"
