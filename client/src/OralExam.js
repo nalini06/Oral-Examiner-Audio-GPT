@@ -120,6 +120,8 @@ function OralExam() {
       }
        console.log("exam is completed");
        setQuestions("Thanks for taking this exam, transcript uploaded to our database and also a copy is downloaded into your's local storage.")
+       const speech3 = new SpeechSynthesisUtterance("Thanks for taking this exam, transcript uploaded to our database and also a copy is downloaded into yours local storage.");
+       speechSynthesis.speak(speech3);
        console.log("The Generated Transcript \n" + transcriptBetweenStudentAndExaminer)
       mic.stop()
       mic.onend = () =>{
